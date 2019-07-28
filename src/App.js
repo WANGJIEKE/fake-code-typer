@@ -17,52 +17,64 @@ class App extends React.Component {
     };
   }
 
-  showNextChar(isBackSpace) {
-    if (isBackSpace) {
-      if (this.state.nextCharIndex <= 0) {
-        this.setState({nextCharIndex: 0});
-        return;
-      }
-
-      this.setState((state) => {
-        return {
-          nextCharIndex: state.nextCharIndex - 1
-        }
-      });
-
-    } else {
-      if (this.state.nextCharIndex >= this.props.content.length) {
-        document.removeEventListener('keydown', this.showNextChar);
-        return;
-      }
-  
-      this.setState((state) => {
-        return {
-          nextCharIndex: state.nextCharIndex + getRandIntInclusive(1, 5)
-        }
-      });
+  showNextChar() {
+    if (this.state.nextCharIndex >= this.props.content.length) {
+      return;
     }
+
+    this.setState((state) => {
+      return {
+        nextCharIndex: state.nextCharIndex + getRandIntInclusive(this.props.minStep, this.props.maxStep)
+      }
+    });
+  }
+
+  backspace() {
+    if (this.state.nextCharIndex <= 0) {
+      this.setState({ nextCharIndex: 0 });
+      return;
+    }
+
+    this.setState((state) => {
+      return {
+        nextCharIndex: state.nextCharIndex - 1
+      }
+    });
+  }
+
+  keyDownHandler(event) {
+    if (event.ctrlKey || event.metaKey || event.shiftKey) {
+      return;
+    }
+
+    switch (event.key) {
+      case 'Escape':
+      case 'F1':
+      case 'F2':
+      case 'F3':
+      case 'F4':
+      case 'F5':
+      case 'F6':
+      case 'F7':
+      case 'F8':
+      case 'F9':
+      case 'F10':
+      case 'F11':
+      case 'F12':
+        return;
+      case 'Backspace':
+        this.backspace();
+        break;
+      default:
+        this.showNextChar();
+    }
+    window.scrollTo(0, document.body.clientHeight);
+    event.preventDefault();
   }
 
   componentDidMount() {
     hljs.initHighlighting();
-    document.addEventListener('keydown', (event) =>{
-      switch (event.key) {
-        case 'Escape':
-        case 'F11':
-        case 'F12':
-          break;
-        case 'Backspace':
-          this.showNextChar(true);
-          window.scrollTo(0, document.body.clientHeight);
-          event.preventDefault();
-          break;
-        default:
-          this.showNextChar();
-          window.scrollTo(0, document.body.clientHeight);
-          event.preventDefault();
-      }
-    });
+    document.addEventListener('keydown', (event) => {this.keyDownHandler(event);});
   }
 
   componentDidUpdate() {
@@ -75,7 +87,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <pre>
-          <code className="python">{this.props.content.slice(0, this.state.nextCharIndex)}</code>
+          <code className={this.props.language}>{this.props.content.slice(0, this.state.nextCharIndex)}</code>
         </pre>
       </div>
     );

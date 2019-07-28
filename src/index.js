@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
 const CODE = `#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -101,17 +100,11 @@ def remove_password(path: str) -> None:
     except OSError as e:
         _print_error_msg(e)
     except Exception:
-        print(f'{sys.argv[0]}: error: unexpected error, see Traceback below and probably open an issue\n', file=sys.stderr)
+        print(f'{sys.argv[0]}: error: unexpected error, see Traceback below and probably open an issue\\n', file=sys.stderr)
         raise
 
 
 if __name__ == '__main__':
-    remove_password(_parse_args())
-`;
+    remove_password(_parse_args())`;
 
-ReactDOM.render(<App content={CODE} />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<App content={CODE} language="python" minStep={3} maxStep={5} />, document.getElementById('root'));

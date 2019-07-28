@@ -1,6 +1,6 @@
 pre code {
   font-family: 'Fira Code', 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 @keyframes blinker {
@@ -13,8 +13,4 @@ code::after {
   content: "|";
   font-weight: 300;
   animation: blinker 1s linear infinite;
-}
-
-.App::-webkit-scrollbar {
-  width: 0
 }
