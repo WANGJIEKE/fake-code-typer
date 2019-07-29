@@ -1,0 +1,23 @@
+.App {
+    max-width: 100vw;
+
+    .InfoIcon {
+        img {
+            width: 32px;
+            height: 32px;
+            filter: brightness(50%);
+        }
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 99;
+        margin-top: 15px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+    
+    .PseudoCodeEditor {
+        overflow: visible;
+    }
+}

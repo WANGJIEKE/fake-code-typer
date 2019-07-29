@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
 html, body {
   background-color: #282c34;
+  font-family: 'Poppins', sans-serif;
+  color: #afafaf;
+  margin: 0;
 }
 
 html::-webkit-scrollbar {
