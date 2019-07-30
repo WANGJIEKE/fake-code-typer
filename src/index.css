@@ -1,14 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap');
 
 html, body {
   background-color: #282c34;
   font-family: 'Poppins', sans-serif;
   color: #afafaf;
   margin: 0;
+  height: 100%;
 }
 
-html::-webkit-scrollbar {
-  display: none;
-  width: 0px;
-  background: transparent;
+/* from https://css-tricks.com/custom-scrollbars-in-webkit/ */
+
+::-webkit-scrollbar {
+  width: 0.8vw;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #21252b;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #a6acb7;
 }

@@ -44,7 +44,7 @@ class PseudoCodeEditor extends React.Component {
   }
 
   keyDownHandler(event) {
-    if (event.ctrlKey || event.metaKey || event.shiftKey) {
+    if (!this.props.shouldHandleKeyPress || event.ctrlKey || event.metaKey || event.shiftKey) {
       return;
     }
 
@@ -69,7 +69,9 @@ class PseudoCodeEditor extends React.Component {
       default:
         this.showNextChar();
     }
-    window.scrollTo(0, document.body.clientHeight);
+    const pre = document.querySelector('.PseudoCodeEditor > pre');
+    const code = document.querySelector('.PseudoCodeEditor > pre > code');
+    pre.scrollTo(0, code.clientHeight);
     event.preventDefault();
   }
 
@@ -87,9 +89,7 @@ class PseudoCodeEditor extends React.Component {
   render() {
     return (
       <div className="PseudoCodeEditor">
-        <pre>
-          <code className={this.props.language}>{this.props.content.slice(0, this.state.nextCharIndex)}</code>
-        </pre>
+        <pre><code className={this.props.language}>{this.props.content.slice(0, this.state.nextCharIndex)}</code></pre>
       </div>
     );
   }

@@ -1,5 +1,8 @@
+/* some style here uses css taken from https://github.com/mdo/wtf-forms/ */
+
 .App {
-    max-width: 100vw;
+    width: 100vw;
+    height: 100%;
 
     .InfoIcon {
         img {
@@ -13,11 +16,12 @@
         right: 0;
         z-index: 99;
         margin-top: 15px;
-        margin-right: 15px;
+        margin-right: 20px;
         cursor: pointer;
     }
-    
+
     .PseudoCodeEditor {
-        overflow: visible;
+        height: 100vh;
+        width: 100vw;
     }
 }
