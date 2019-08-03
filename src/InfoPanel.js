@@ -12,6 +12,35 @@ class InfoPanel extends React.Component {
     }
   }
 
+  async handleFile(file) {
+    try {
+      const fileContent = await this.readFile(file);
+      this.handleChange({content: fileContent});
+    } catch (e) {
+      console.error(e.message);
+    }
+  }
+
+  readFile(file) {
+    const reader = new FileReader();
+    return new Promise((resolve, reject) => {
+      reader.onerror = () => {
+        reader.abort();
+        reject(new DOMException('An error occured when reading the file'));
+      };
+
+      reader.onloadend = () => {
+        resolve(reader.result);
+      }
+
+      reader.readAsText(file);
+    });
+  }
+
+  handleChange(newAppState) {
+    this.props.onUpdate(newAppState);
+  }
+
   render() {
     return (
       <div className="InfoPanel">

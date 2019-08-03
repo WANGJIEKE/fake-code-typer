@@ -4,7 +4,7 @@ import './App.scss';
 import PseudoCodeEditor from './PseudoCodeEditor';
 import InfoPanel from './InfoPanel';
 import infoIcon from './assets/info.png';
-import DEFAULT_CODE from './default_code';
+import DEFAULT_CODE from './constants';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,17 +14,8 @@ class App extends React.Component {
       language: 'python',
       minStep: 10,
       maxStep: 20,
-      isUsingPanel: true,
-      fileName: null
+      isUsingPanel: true
     }
-  }
-
-  handleFile(file) {  // not sure why can't directly pass event here
-    this.setState({fileName: file.name});
-  }
-
-  onFileAndLanguageChanged() {
-    
   }
 
   onInfoIconClicked(event) {
@@ -40,6 +31,11 @@ class App extends React.Component {
     event.preventDefault();
   }
 
+  onInfoPanelUpdate(newState) {
+    this.setState(newState);
+    console.log('asdfg');
+  }
+
   render() {
     return (
       <div className="App">
@@ -53,7 +49,7 @@ class App extends React.Component {
           maxStep={this.state.maxStep}
           shouldHandleKeyPress={!this.state.isUsingPanel}
         />
-        <InfoPanel />
+        <InfoPanel onUpdate={(newState) => { this.onInfoPanelUpdate(newState); }} />
       </div>
     );
   }
