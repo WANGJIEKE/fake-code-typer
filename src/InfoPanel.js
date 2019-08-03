@@ -37,6 +37,18 @@ class InfoPanel extends React.Component {
     });
   }
 
+  handleLanguage(event) {
+    this.handleChange({language: event.target.value});
+  }
+
+  handleMinStep(event) {
+    this.handleChange({minStep: event.target.value});
+  }
+
+  handleMaxStep(event) {
+    this.handleChange({maxStep: event.target.value});
+  }
+
   handleChange(newAppState) {
     this.props.onUpdate(newAppState);
   }
@@ -52,15 +64,15 @@ class InfoPanel extends React.Component {
         <input type="file" id="file" name="file" accept="text/*" multiple={false} onChange={(event) => { this.handleFile(event.target.files[0]); }} />
         <p>Programming Language</p>
         <select id="programming-language" name="programming-language">
-          <option value="C">C</option>
-          <option value="C++">C++</option>
-          <option value="Java">Java</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Objective-C">Objective-C</option>
-          <option value="Python">Python</option>
+          <option value="python" onClick={(event) => {this.handleLanguage(event); }}>Python</option>
+          <option value="c" onClick={(event) => {this.handleLanguage(event); }}>C</option>
+          <option value="cpp" onClick={(event) => {this.handleLanguage(event); }}>C++</option>
+          <option value="java" onClick={(event) => {this.handleLanguage(event); }}>Java</option>
+          <option value="javascript" onClick={(event) => {this.handleLanguage(event); }}>JavaScript</option>
+          <option value="obj-c" onClick={(event) => {this.handleLanguage(event); }}>Objective-C</option>
         </select>
-        <label>Min step<input type="number" id="min-step" min="1" step="1" placeholder="3"></input></label>
-        <label>Max step<input type="number" id="max-step" min="1" step="1" placeholder="5"></input></label>
+        <label>Min step<input type="number" id="min-step" min="1" step="1" placeholder="3" onChange={(event) => {this.handleMinStep(event); }}></input></label>
+        <label>Max step<input type="number" id="max-step" min="1" step="1" placeholder="5" onChange={(event) => {this.handleMaxStep(event); }}></input></label>
 
         <div className="credit">
           <p>Created by Tongjie Wang with <span role="img" aria-label="love">❤️</span><br />

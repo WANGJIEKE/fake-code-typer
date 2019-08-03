@@ -6,16 +6,50 @@ import InfoPanel from './InfoPanel';
 import infoIcon from './assets/info.png';
 import DEFAULT_CODE from './constants';
 
+function getRandIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       content: DEFAULT_CODE,
+      nextCharIndex: 0,
       language: 'python',
       minStep: 10,
       maxStep: 20,
       isUsingPanel: true
+    };
+    this.fileReader = new FileReader();
+  }
+
+  showNextChar() {
+    if (this.state.nextCharIndex >= this.state.content.length) {
+      return;
     }
+
+    this.setState((state) => {
+      return {
+        nextCharIndex: state.nextCharIndex + getRandIntInclusive(this.state.minStep, this.state.maxStep)
+      }
+    });
+  }
+
+  keyDownHandler(event) {
+    if (this.state.isUsingPanel) {
+      return;
+    }
+    this.showNextChar();
+    const pre = document.querySelector('.PseudoCodeEditor > pre');
+    const code = document.querySelector('.PseudoCodeEditor > pre > code');
+    pre.scrollTo(0, code.clientHeight);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', (event) => { this.keyDownHandler(event); })
   }
 
   onInfoIconClicked(event) {
@@ -33,7 +67,7 @@ class App extends React.Component {
 
   onInfoPanelUpdate(newState) {
     this.setState(newState);
-    console.log('asdfg');
+    this.setState({nextCharIndex: 0});
   }
 
   render() {
@@ -43,11 +77,8 @@ class App extends React.Component {
           <img src={infoIcon} alt=""></img>
         </div>
         <PseudoCodeEditor
-          content={this.state.content}
+          content={this.state.content.slice(0, this.state.nextCharIndex)}
           language={this.state.language}
-          minStep={this.state.minStep}
-          maxStep={this.state.maxStep}
-          shouldHandleKeyPress={!this.state.isUsingPanel}
         />
         <InfoPanel onUpdate={(newState) => { this.onInfoPanelUpdate(newState); }} />
       </div>
