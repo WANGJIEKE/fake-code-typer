@@ -71,7 +71,7 @@ class InfoPanel extends React.Component {
         <button onClick={(event) => { document.getElementById('file').click(); event.preventDefault(); }}>
           Browse...
           </button>
-        <input type="file" id="file" name="file" accept="text/*" multiple={false} onChange={(event) => { this.handleFile(event.target.files[0]); }} />
+        <input type="file" id="file" name="file" multiple={false} onChange={(event) => { this.handleFile(event.target.files[0]); }} />
         <h2>Programming Language</h2>
         <select id="programming-language" name="programming-language" onChange={(event) => {this.handleLanguage(event);}}>
           <option value="c">C</option>
