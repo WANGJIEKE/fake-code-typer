@@ -65,7 +65,8 @@ class InfoPanel extends React.Component {
         <div className="description">
           <p>Settings will be automatically saved</p>
           <p>The editor will be reset when changes saved</p>
-          <p>Click the info icon to close/open this panel</p>
+          <p>Click the info icon to close this panel and start typing</p>
+          <p>You can click the icon again to show this panel</p>
         </div>
         <h2>Source Code File</h2>
         <button onClick={(event) => { document.getElementById('file').click(); event.preventDefault(); }}>
