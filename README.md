@@ -4,6 +4,8 @@
 
 Displaying source code incrementally by arbitrarily press your keyboard. Make you feel like you are coding without actually coding. Syntax highlighting by [highlight.js](https://github.com/highlightjs/highlight.js); icons by [Ant Design official icon library](https://www.iconfont.cn/collections/detail?cid=9402).
 
+[Demo](https://www.ics.uci.edu/~tongjiew/pseudo-code-editor/)
+
 ## Features
 
 - Support custom local source files
