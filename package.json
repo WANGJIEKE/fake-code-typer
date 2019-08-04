@@ -1,6 +1,6 @@
 {
-  "name": "code-autotype",
-  "version": "0.1.0",
+  "name": "pseudo-code-editor",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "highlight.js": "^9.15.8",
