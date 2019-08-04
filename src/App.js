@@ -3,7 +3,7 @@ import './App.scss';
 
 import PseudoCodeEditor from './PseudoCodeEditor';
 import InfoPanel from './InfoPanel';
-import infoIcon from './assets/info.png';
+import infoIcon from './assets/info-circle.svg';
 import DEFAULT_CODE from './constants';
 
 function getRandIntInclusive(min, max) {
@@ -23,7 +23,6 @@ class App extends React.Component {
       maxStep: 20,
       isUsingPanel: true
     };
-    this.fileReader = new FileReader();
   }
 
   showNextChar() {
@@ -78,7 +77,7 @@ class App extends React.Component {
         </div>
         <PseudoCodeEditor
           content={this.state.content.slice(0, this.state.nextCharIndex)}
-          language={this.state.language}
+          language={this.state.language} 
         />
         <InfoPanel onUpdate={(newState) => { this.onInfoPanelUpdate(newState); }} />
       </div>

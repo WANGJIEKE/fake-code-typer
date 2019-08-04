@@ -5,11 +5,16 @@ class InfoPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fileName: null,
       language: 'python',
-      minStep: 10,
-      maxStep: 20
+      minStep: 3,
+      maxStep: 5
     }
+  }
+
+  componentDidMount() {
+    document.getElementById('min-step').value = this.state.minStep;
+    document.getElementById('max-step').value = this.state.maxStep;
+    document.getElementById('programming-language').value='python';
   }
 
   async handleFile(file) {
@@ -57,29 +62,41 @@ class InfoPanel extends React.Component {
     return (
       <div className="InfoPanel">
         <h1>Pseudo Code Editor</h1>
-        <p>{this.state.fileName ? `File "${this.state.fileName}" is selected` : "Please select a file..."}</p>
+        <div className="description">
+          <p>Settings will be automatically saved</p>
+          <p>The editor will be reset when changes saved</p>
+          <p>Click the info icon to close/open this panel</p>
+        </div>
+        <h2>Source Code File</h2>
         <button onClick={(event) => { document.getElementById('file').click(); event.preventDefault(); }}>
-          Choose a source file...
+          Browse...
           </button>
         <input type="file" id="file" name="file" accept="text/*" multiple={false} onChange={(event) => { this.handleFile(event.target.files[0]); }} />
-        <p>Programming Language</p>
-        <select id="programming-language" name="programming-language">
-          <option value="python" onClick={(event) => {this.handleLanguage(event); }}>Python</option>
-          <option value="c" onClick={(event) => {this.handleLanguage(event); }}>C</option>
-          <option value="cpp" onClick={(event) => {this.handleLanguage(event); }}>C++</option>
-          <option value="java" onClick={(event) => {this.handleLanguage(event); }}>Java</option>
-          <option value="javascript" onClick={(event) => {this.handleLanguage(event); }}>JavaScript</option>
-          <option value="obj-c" onClick={(event) => {this.handleLanguage(event); }}>Objective-C</option>
+        <h2>Programming Language</h2>
+        <select id="programming-language" name="programming-language" onChange={(event) => {this.handleLanguage(event);}}>
+          <option value="c">C</option>
+          <option value="cpp">C++</option>
+          <option value="cs">C#</option>
+          <option value="css">CSS</option>
+          <option value="html">HTML</option>
+          <option value="java">Java</option>
+          <option value="javascript">JavaScript</option>
+          <option value="json">JSON</option>
+          <option value="markdown">Markdown</option>
+          <option value="objc">Objective-C</option>
+          <option value="python">Python</option>
+          <option value="x86asm">x86 Assembly</option>
         </select>
-        <label>Min step<input type="number" id="min-step" min="1" step="1" placeholder="3" onChange={(event) => {this.handleMinStep(event); }}></input></label>
-        <label>Max step<input type="number" id="max-step" min="1" step="1" placeholder="5" onChange={(event) => {this.handleMaxStep(event); }}></input></label>
-
-        <div className="credit">
-          <p>Created by Tongjie Wang with <span role="img" aria-label="love">❤️</span><br />
+        <h2>Min step</h2>
+        <input type="number" id="min-step" min="1" step="1" onChange={(event) => {this.handleMinStep(event); }}></input>
+        <h2>Max step</h2>
+        <input type="number" id="max-step" min="1" step="1" onChange={(event) => {this.handleMaxStep(event); }}></input>
+        <div className="footer">
+          <p>Created by <a href="https://github.com/WANGJIEKE" target="_blank" rel="noreferrer noopener">WANGJIEKE</a> with <span role="img" aria-label="love">❤️</span><br />
             Please check the <a href="https://github.com/WANGJIEKE" target="_blank" rel="noreferrer noopener">GitHub repo</a> for source code<br />
             <span>
-              Syntax highlighting by <a href="https://highlightjs.org" target="_blank" rel="noreferrer noopener">highlight.js</a>; icons by foo and bar
-              </span>
+              Syntax highlighting by <a href="https://highlightjs.org" target="_blank" rel="noreferrer noopener">highlight.js</a>; icons from <a href="https://www.iconfont.cn/collections/detail?cid=9402" target="_blank" rel="noreferrer noopener">Ant Design icon library</a>
+            </span>
           </p>
         </div>
       </div>
