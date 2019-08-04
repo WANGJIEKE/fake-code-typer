@@ -1,7 +1,4 @@
 const DEFAULT_CODE = `# -*- coding: utf-8 -*-
-# Created with PyCharm
-# @Time       : 2019-05-14 19:36
-# @Author     : Tongjie Wang
 # @GitHub Link: https://github.com/WANGJIEKE/PyShell
 
 import cmd
