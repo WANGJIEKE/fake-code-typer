@@ -10,7 +10,7 @@
     }
 
     &::after {
-      content: "|";
+      content: "│";
       font-weight: 300;
       animation: blinker 1s linear infinite;
     }
