@@ -1,4 +1,4 @@
-# Pseudo Code Editor
+# Fake Code Typer
 
 [English](../README.md)
 
