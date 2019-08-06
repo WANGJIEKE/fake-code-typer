@@ -1,9 +1,9 @@
 import React from 'react';
-import './PseudoCodeEditor.scss';
+import './FakeCodeTyper.scss';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 
-class PseudoCodeEditor extends React.Component {
+class FakeCodeTyper extends React.Component {
   componentDidMount() {
     hljs.initHighlighting();
   }
@@ -16,11 +16,11 @@ class PseudoCodeEditor extends React.Component {
 
   render() {
     return (
-      <div className="PseudoCodeEditor">
+      <div className="FakeCodeTyper">
         <pre><code className={this.props.language}>{this.props.content}</code></pre>
       </div>
     );
   }
 }
 
-export default PseudoCodeEditor;
+export default FakeCodeTyper;

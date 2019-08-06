@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 
-import PseudoCodeEditor from './PseudoCodeEditor';
+import FakeCodeTyper from './FakeCodeTyper';
 import InfoPanel from './InfoPanel';
 import infoIcon from './assets/info-circle.svg';
 import DEFAULT_CODE from './constants';
@@ -42,8 +42,8 @@ class App extends React.Component {
       return;
     }
     this.showNextChar();
-    const pre = document.querySelector('.PseudoCodeEditor > pre');
-    const code = document.querySelector('.PseudoCodeEditor > pre > code');
+    const pre = document.querySelector('.FakeCodeTyper > pre');
+    const code = document.querySelector('.FakeCodeTyper > pre > code');
     pre.scrollTo(0, code.clientHeight);
   }
 
@@ -75,7 +75,7 @@ class App extends React.Component {
         <div className="InfoIcon" onClick={(event) => { this.onInfoIconClicked(event); }}>
           <img src={infoIcon} alt=""></img>
         </div>
-        <PseudoCodeEditor
+        <FakeCodeTyper
           content={this.state.content.slice(0, this.state.nextCharIndex)}
           language={this.state.language} 
         />
