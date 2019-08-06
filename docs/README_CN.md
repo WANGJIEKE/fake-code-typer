@@ -18,7 +18,7 @@
 
 ```bash
 git clone https://github.com/WANGJIEKE/fake-code-typer.git
-cd pseudo-code-editor
+cd fake-code-typer
 npm install
 npm start
 ```
