@@ -1,4 +1,4 @@
-# Fake Code Editor
+# Fake Code Typer
 
 [中文版](./docs/README_CN.md)
 
@@ -18,7 +18,7 @@ Displaying source code by mashing your keyboard. Make you feel like you are codi
 
 ```bash
 git clone https://github.com/WANGJIEKE/fake-code-typer.git
-cd pseudo-code-editor
+cd fake-code-typer
 npm install
 npm start
 ```
