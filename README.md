@@ -4,7 +4,7 @@
 
 Displaying source code incrementally by arbitrarily press your keyboard. Make you feel like you are coding without actually coding. Syntax highlighting by [highlight.js](https://github.com/highlightjs/highlight.js); icons by [Ant Design official icon library](https://www.iconfont.cn/collections/detail?cid=9402).
 
-[Demo](https://www.ics.uci.edu/~tongjiew/pseudo-code-editor/)
+[Demo](https://www.ics.uci.edu/~tongjiew/fake-code-typer/)
 
 ## Features
 
@@ -17,7 +17,7 @@ Displaying source code incrementally by arbitrarily press your keyboard. Make yo
 [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/) are required.
 
 ```bash
-git clone https://github.com/WANGJIEKE/pseudo-code-editor.git
+git clone https://github.com/WANGJIEKE/fake-code-typer.git
 cd pseudo-code-editor
 npm install
 npm start

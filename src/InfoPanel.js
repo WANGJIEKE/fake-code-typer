@@ -61,7 +61,7 @@ class InfoPanel extends React.Component {
   render() {
     return (
       <div className="InfoPanel">
-        <h1>Pseudo Code Editor</h1>
+        <h1>Fake Code Typer</h1>
         <div className="description">
           <p>Settings will be automatically saved</p>
           <p>The editor will be reset when changes saved</p>
