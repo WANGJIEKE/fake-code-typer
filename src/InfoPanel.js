@@ -94,7 +94,7 @@ class InfoPanel extends React.Component {
         <input type="number" id="max-step" min="1" step="1" onChange={(event) => {this.handleMaxStep(event); }}></input>
         <div className="footer">
           <p>Created by <a href="https://github.com/WANGJIEKE" target="_blank" rel="noreferrer noopener">WANGJIEKE</a> with <span role="img" aria-label="love">❤️</span><br />
-            Please check the <a href="https://github.com/WANGJIEKE" target="_blank" rel="noreferrer noopener">GitHub repo</a> for source code<br />
+            Please check the <a href="https://github.com/WANGJIEKE/fake-code-typer" target="_blank" rel="noreferrer noopener">GitHub repo</a> for source code<br />
             <span>
               Syntax highlighting by <a href="https://highlightjs.org" target="_blank" rel="noreferrer noopener">highlight.js</a>; icons from <a href="https://www.iconfont.cn/collections/detail?cid=9402" target="_blank" rel="noreferrer noopener">Ant Design icon library</a>
             </span>
