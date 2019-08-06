@@ -1,4 +1,4 @@
-# Pseudo Code Editor
+# Fake Code Editor
 
 [中文版](./docs/README_CN.md)
 
