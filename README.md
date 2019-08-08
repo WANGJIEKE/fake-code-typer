@@ -1,10 +1,10 @@
 # Fake Code Typer
 
-[中文版](./docs/README_CN.md)
+[中文版](./README_CN.md)
+
+[Demo](https://wangjieke.github.io/fake-code-typer/)
 
 Displaying source code by mashing your keyboard. Make you feel like you are coding without actually coding. Syntax highlighting by [highlight.js](https://github.com/highlightjs/highlight.js); icons by [Ant Design official icon library](https://www.iconfont.cn/collections/detail?cid=9402).
-
-[Demo](https://www.ics.uci.edu/~tongjiew/fake-code-typer/)
 
 ## Features
 
