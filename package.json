@@ -2,6 +2,7 @@
   "name": "fake-code-typer",
   "version": "1.1.0",
   "private": true,
+  "homepage": "https://wangjieke.github.io/fake-code-typer/",
   "dependencies": {
     "highlight.js": "^9.15.8",
     "node-sass": "^4.12.0",
